@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template name="com.wso2telco.jwt.property.extract.Template" xmlns="http://ws.apache.org/ns/synapse">
+    <parameter name="applicableApiVersion"/>
+    <sequence>
+        <filter xpath="$func:applicableApiVersion = $trp:VERSION">
+            <then>
+                <class name="com.wso2telco.jwt.property.extract.mediator.JWTPropertyExtractMediator">
+                    <property name="jwtHeaderName" value="X-JWT-Assertion"/>
+                    <property name="jwtClaimName" value="http://wso2.org/claims/mobile"/>
+                    <property name="messageContextProperty" value="userMsisdn"/>
+                    <property name="tenantName" value="@carbon.super"/>
+                </class>
+            </then>
+            <else>
+                <log level="custom">
+                    <property name="JWT-PROPERTY-EXTRACT"
+                              expression="fn:concat('JWT property extraction is supported only on API ', $func:applicableApiVersion)"/>
+                </log>
+            </else>
+        </filter>
+    </sequence>
+</template>

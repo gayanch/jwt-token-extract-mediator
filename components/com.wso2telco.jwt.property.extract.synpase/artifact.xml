@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><artifacts>
+    <artifact name="com.wso2telco.jwt.property.extract.Template" groupId="com.example.com.wso2telco.jwt.property.extract.synpase.template" version="1.0.0" type="synapse/sequenceTemplate" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/templates/com.wso2telco.jwt.property.extract.Template.xml</file>
+    </artifact>
+</artifacts>
